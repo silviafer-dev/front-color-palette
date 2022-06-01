@@ -3,7 +3,6 @@ import { CompactPicker } from "react-color";
 import "./color-picker.css";
 
 export function ColorPicker({ addPalette }) {
-    const [select, setSelect] = useState(false);
     const [color, setColor] = useState("#CCCCCC");
     const [newPalette, setNewPalette] = useState({
         title: "",
@@ -14,13 +13,13 @@ export function ColorPicker({ addPalette }) {
         color5: "",
     });
 
-    const onChangeComplete = (color) => {
+    const handleChangeComplete = (color) => {
         setColor(color.hex);
     };
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        console.log(newPalette, "la newPalette");
+
         addPalette(newPalette);
         setNewPalette({
             title: "",
@@ -32,75 +31,56 @@ export function ColorPicker({ addPalette }) {
         });
     };
     const handleChange = (evt) => {
-        setSelect(!select);
         setNewPalette({
             ...newPalette,
             [evt.target.name]: evt.target.value,
         });
     };
-    // let circleClassName = "small";
-    // select ? (circleClassName = "big") : (circleClassName = "small");
 
     return (
         <div>
-            {/* <Circle color={color} circleClassName={circleClassName} />
-            <Circle color={color} circleClassName={circleClassName} /> */}
-
             <form onSubmit={handleSubmit}>
-                <input
-                    className="color-circle"
-                    type="color"
-                    name="color1"
-                    value={newPalette.color1}
-                    onClick={() => {
-                        setSelect(!select);
-                    }}
-                    onChange={handleChange}
-                />
-                <input
-                    className="color-circle"
-                    type="color"
-                    name="color2"
-                    value={newPalette.color2}
-                    onClick={() => {
-                        setSelect(!select);
-                    }}
-                    onChange={handleChange}
-                />
-                <input
-                    className="color-circle"
-                    type="color"
-                    name="color3"
-                    value={newPalette.color3}
-                    onClick={() => {
-                        setSelect(!select);
-                    }}
-                    onChange={handleChange}
-                />
-                <input
-                    className="color-circle"
-                    type="color"
-                    name="color4"
-                    value={newPalette.color4}
-                    onClick={() => {
-                        setSelect(!select);
-                    }}
-                    onChange={handleChange}
-                />
-                <input
-                    className="color-circle"
-                    type="color"
-                    name="color5"
-                    value={newPalette.color5}
-                    onClick={() => {
-                        setSelect(!select);
-                    }}
-                    onChange={handleChange}
-                />
+                <div className="color-pick">
+                    <input
+                        className="color-circle"
+                        type="color"
+                        name="color1"
+                        value={newPalette.color1}
+                        onChange={handleChange}
+                    />
+                    <input
+                        className="color-circle"
+                        type="color"
+                        name="color2"
+                        value={newPalette.color2}
+                        onChange={handleChange}
+                    />
+                    <input
+                        className="color-circle"
+                        type="color"
+                        name="color3"
+                        value={newPalette.color3}
+                        onChange={handleChange}
+                    />
+                    <input
+                        className="color-circle"
+                        type="color"
+                        name="color4"
+                        value={newPalette.color4}
+                        onChange={handleChange}
+                    />
+                    <input
+                        className="color-circle"
+                        type="color"
+                        name="color5"
+                        value={newPalette.color5}
+                        onChange={handleChange}
+                    />
+                </div>
                 <div className="color-form">
                     <CompactPicker
                         color={color}
-                        onChangeComplete={onChangeComplete}
+                        onChangeComplete={handleChangeComplete}
                     />
                     <div className="save-color">
                         <span className="name">Name</span>

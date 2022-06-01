@@ -3,6 +3,7 @@
     height: 50px;
     margin: 20px;
     border: none;
+    cursor: pointer;
 }
 
 .color-form {
@@ -34,4 +35,11 @@
     padding: 4px;
     width: 55px;
     font-size: 22px;
+    cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+    .color-pick {
+        display: flex;
+        justify-content: center;
+    }
 }
