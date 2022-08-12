@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { CompactPicker } from "react-color";
+// import { Button } from "./button";
+
 import "./color-picker.css";
 
 export function ColorPicker({ addPalette }) {
+    // const [selected, setSelected] = useState(false);
     const [color, setColor] = useState("#CCCCCC");
     const [newPalette, setNewPalette] = useState({
         title: "",
@@ -37,8 +40,29 @@ export function ColorPicker({ addPalette }) {
         });
     };
 
+    const handleChangeColor = () => {
+        setColor(color.hex);
+    };
+
+    // !selected && handleChangeColor();
+
     return (
         <div>
+            {/* <Button
+                color={color}
+                setColor={setColor}
+                onClick={() => {
+                    setSelected(!selected);
+                }}
+            />
+            <Button
+                color={color}
+                setColor={setColor}
+                onClick={() => {
+                    setSelected(!selected);
+                }}
+            /> */}
+
             <form onSubmit={handleSubmit}>
                 <div className="color-pick">
                     <input

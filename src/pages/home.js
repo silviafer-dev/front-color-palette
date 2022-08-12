@@ -34,6 +34,7 @@ export function Home() {
                 <BsPalette className="icon-palette" />
                 <h1>Color palette generator</h1>
             </div>
+
             <ColorPicker addPalette={addPalette} />
             <div className="block">
                 {palettes.length ? (
